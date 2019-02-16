@@ -1,0 +1,91 @@
+{
+    "name": "docs-authoring-extras",
+    "displayName": "docs-authoring-extras",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.31.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.docs-authoring-extras"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.docs-authoring-extras",
+                "title": "docs authoring extras"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Doc Authoring Extras",
+            "properties": {
+                "DocsAuthoringExtras.text-analytics-resourcename": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": "diberry-text-analytics",
+                    "markdownDescription": "Text analytics resource name: `diberry-text-analytics`"
+                },
+                "DocsAuthoringExtras.text-analytics-key": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": "eacf2fb8075d46d2b2ae3576d2656766",
+                    "markdownDescription": "String of text analytics resource key: `eeef2fb8075d46d2b2ae3576d2656766`"
+                },
+                "DocsAuthoringExtras.text-analytics-host": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": "https://westus.api.cognitive.microsoft.com",
+                    "markdownDescription": "String of - text analytics host including region: `westus.api.cognitive.microsoft.com`"
+                },
+                "DocsAuthoringExtras.text-analytics-route": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": "/text/analytics/v2.0/keyPhrases",
+                    "markdownDescription": "String of text analytics route: `/text/analytics/v2.0/keyPhrases`"
+                },
+                "DocsAuthoringExtras.text-analytics-keyword-max-count": {
+                    "type": [
+                        "number"
+                    ],
+                    "default": 20,
+                    "markdownDescription": "Max number of phrases to return, Default: `20`"
+                },
+                "DocsAuthoringExtras.text-analytics-filter": {
+                    "type": "array",
+                    "default": [
+                        "Azure"
+                    ],
+                    "markdownDescription": "Array of words to filter out of result: `Default: [Azure]`"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "yarn run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^10.12.21",
+        "tslint": "^5.12.1",
+        "typescript": "^3.3.1",
+		"vscode": "^1.1.29",
+		"docs-cog-services":"^0.0.1-e"
+    }
+}
